@@ -138,6 +138,10 @@ main {
   cursor: pointer;
 }
 
+.info-error {
+  color: tomato;
+}
+
 footer {
   padding: 4rem 0;
   font-size: 1.4rem;

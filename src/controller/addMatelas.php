@@ -19,8 +19,6 @@ class AddMatelasController {
             $poster = trim(strip_tags($_POST['poster']));
             $prix = trim(strip_tags($_POST['prix']));
             $promotion = trim(strip_tags($_POST['promotion']));
-            $dimensions = trim(strip_tags($_POST['dimensions']));
-            echo $_POST['dimensions'];
 
             // GERER ICI LES ERREURS POSSIBLES SUR name, mark, poster, prix et promotion !!!!!!!!!!!!
             // Validation du nom du modèle
@@ -43,14 +41,14 @@ class AddMatelasController {
                 $errors["prix"] = "Le prix du modèle doit être renseigné.";
             }
 
-            if (empty($dimensions)) {
-                $errors["dimensions"] = "La ou les dimensions disponibles pour ce modèle doit/doivent être indiquée(s).";
-            }
+            // if (empty($dimensions)) {
+            //     $errors["dimensions"] = "La ou les dimensions disponibles pour ce modèle doit/doivent être indiquée(s).";
+            // }
         
             if (empty($errors)) {
         
                 // Insertion du matelas en base de données
-                $query = $this->model->db->prepare("INSERT INTO matelas (nom, marque, poster, prix, promotion) VALUES(:name, :mark, :poster, :prix, :promotion)");
+                $query = $this->model->db->prepare("INSERT INTO matelas (nom, marque, poster, prix, promotion) VALUES (:name, :mark, :poster, :prix, :promotion)");
                 $query->bindParam(":name", $name);
                 $query->bindParam(":mark", $mark);
                 $query->bindParam(":poster", $poster);
@@ -58,13 +56,24 @@ class AddMatelasController {
                 $query->bindParam(":promotion", $promotion, PDO::PARAM_INT);
         
                 if ($query->execute()) {
+                    $query = $this->model->db->query("SELECT id from matelas ORDER BY id DESC LIMIT 1");
+                    $query->execute();
+                    $res = $query->fetch();
+                    $matela_id = $res["id"];
+                    echo $matela_id;
+                    foreach($_POST['dimensions'] as $valeur) {
+                        $query = $this->model->db->prepare("INSERT INTO dimensions_matelas (dimension_id, matela_id) VALUES(:dimension_id, :matela_id)");
+                        $query->bindParam(":dimension_id", $valeur);
+                        $query->bindParam(":matela_id", $matela_id);
+                        $query->execute();
+                    }
                     header("Location: index.php");
                 } else {
                     $message = "Erreur de bdd";
                 }
             } else {
                 // Message d'erreur
-                $message = "<div class=\"alert alert-danger\">Certains champs ne sont pas renseignés ou comportent des erreurs</div>";
+                $message = "<span class=\"info-error\">Certains champs ne sont pas renseignés ou comportent des erreurs !</span>";
             }
         }
         return $message;

@@ -6,62 +6,63 @@ require_once("header.php");
         <h1>Ajouter une référence (matelas) à votre base de données</h1>
         
         <form action="" method="post">
+            <?= $message ?>
             <div class="form-group">
                 <label for="inputName">Nom du modèle</label>
-                <input type="text" name="name" id="inputName" placeholder="Nom du modèle" value="<?= isset($name) ? $name : "" ?>" required />
+                <input type="text" name="name" id="inputName" placeholder="Nom du modèle" value="<?= isset($name) ? $name : "" ?>"/>
                 <?php
-                if (isset($errors["name"])) {
+                if (!empty($errors["name"])) {
                     echo "<span class=\"info-error\">{$errors["name"]}</span>";
                 }
                 ?>
             </div>
             <div class="form-group">
                 <label for="inputMark">Marque du modèle</label>
-                <input type="text" name="mark" id="inputMark" placeholder="Marque du modèle" value="<?= isset($mark) ? $mark : "" ?>" required />
+                <input type="text" name="mark" id="inputMark" placeholder="Marque du modèle" value="<?= isset($mark) ? $mark : "" ?>"/>
                 <?php
-                if (isset($errors["mark"])) {
+                if (!empty($errors["mark"])) {
                     echo "<span class=\"info-error\">{$errors["mark"]}</span>";
                 }
                 ?>
             </div>
             <div class="form-group">
                 <label for="inputPoster">URL de la photo du modèle</label>
-                <input type="text" name="poster" id="inputPoster" placeholder="URL de la photo du modèle" value="<?= isset($poster) ? $poster : "" ?>" required />
+                <input type="text" name="poster" id="inputPoster" placeholder="URL de la photo du modèle" value="<?= isset($poster) ? $poster : "" ?>"/>
                 <?php
-                if (isset($errors["poster"])) {
+                if (!empty($errors["poster"])) {
                     echo "<span class=\"info-error\">{$errors["poster"]}</span>";
                 }
                 ?>
             </div>
             <div class="form-group">
                 <label for="selectDimensions">Choississez la ou les dimension(s) disponible(s) pour ce modèle (maintenir la touche ctrl ou cmd enfoncée si plusieurs choix) :</label>
-                <select name="dimensions" id="selectDimensions" multiple>
-                    <option <?= (isset($dimensions) && $dimensions === "90x190") ? "selected" : "" ?> value="90x190">90x190</option>
-                    <option <?= (isset($dimensions) && $dimensions === "140x190") ? "selected" : "" ?> value="140x190">140x190</option>
-                    <option <?= (isset($dimensions) && $dimensions === "160x200") ? "selected" : "" ?> value="160x200">160x200</option>
-                    <option <?= (isset($dimensions) && $dimensions === "180x200") ? "selected" : "" ?> value="180x200">180x200</option>
-                    <option <?= (isset($dimensions) && $dimensions === "200x200") ? "selected" : "" ?> value="200x200">200x200</option>
+                <select name="dimensions[]" id="selectDimensions" multiple>
+                    <option <?= (isset($dimensions) && $dimensions === "90x190") ? "selected" : "" ?> value="1">90x190</option>
+                    <option <?= (isset($dimensions) && $dimensions === "140x190") ? "selected" : "" ?> value="2">140x190</option>
+                    <option <?= (isset($dimensions) && $dimensions === "160x200") ? "selected" : "" ?> value="3">160x200</option>
+                    <option <?= (isset($dimensions) && $dimensions === "180x200") ? "selected" : "" ?> value="4">180x200</option>
+                    <option <?= (isset($dimensions) && $dimensions === "200x200") ? "selected" : "" ?> value="5">200x200</option>
                 </select>
                 <?php
-                if (isset($errors["poster"])) {
-                    echo "<span class=\"info-error\">{$errors["poster"]}</span>";
+                if (!empty($errors["poster"])) {
+                    echo "<span class=\"info-error\">{$errors["dimensions"]}</span>";
                 }
                 ?>
             </div>
             <div class="form-group">
                 <label for="inputPrix">Prix du modèle (en €)</label>
-                <input type="number" name="prix" id="inputPrix" placeholder="Prix du modèle en euros" value="<?= isset($prix) ? $prix : "" ?>" required />
+                <input type="number" name="prix" id="inputPrix" placeholder="Prix du modèle en euros" value="<?= isset($prix) ? $prix : "" ?>" />
                 <?php
-                if (isset($errors["prix"])) {
+                if (!empty($errors["prix"])) {
                     echo "<span class=\"info-error\">{$errors["prix"]}</span>";
                 }
                 ?>
             </div>
             <div class="form-group">
                 <label for="inputPromotion">Promotion appliquée (% de réduction à déduire)</label>
-                <input type="number" name="promotion" id="inputPromotion" placeholder="Pourcentage à déduire" value="<?= isset($promotion) ? $promotion : "" ?>" required />
+                <input type="number" name="promotion" id="inputPromotion" placeholder="Pourcentage à déduire" value="<?= isset($promotion) ? $promotion : "" ?>"/>
                 <?php
-                if (isset($errors["promotion"])) {
+                if (!empty($errors["promotion"])) {
                     echo "<span class=\"info-error\">{$errors["promotion"]}</span>";
                 }
                 ?>
