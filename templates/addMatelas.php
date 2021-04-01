@@ -34,6 +34,21 @@ require_once("header.php");
                 ?>
             </div>
             <div class="form-group">
+                <label for="selectDimensions">Choississez la ou les dimension(s) disponible(s) pour ce modèle (maintenir la touche ctrl ou cmd enfoncée si plusieurs choix) :</label>
+                <select name="dimensions" id="selectDimensions" multiple>
+                    <option <?= (isset($dimensions) && $dimensions === "90x190") ? "selected" : "" ?> value="90x190">90x190</option>
+                    <option <?= (isset($dimensions) && $dimensions === "140x190") ? "selected" : "" ?> value="140x190">140x190</option>
+                    <option <?= (isset($dimensions) && $dimensions === "160x200") ? "selected" : "" ?> value="160x200">160x200</option>
+                    <option <?= (isset($dimensions) && $dimensions === "180x200") ? "selected" : "" ?> value="180x200">180x200</option>
+                    <option <?= (isset($dimensions) && $dimensions === "200x200") ? "selected" : "" ?> value="200x200">200x200</option>
+                </select>
+                <?php
+                if (isset($errors["poster"])) {
+                    echo "<span class=\"info-error\">{$errors["poster"]}</span>";
+                }
+                ?>
+            </div>
+            <div class="form-group">
                 <label for="inputPrix">Prix du modèle (en €)</label>
                 <input type="number" name="prix" id="inputPrix" placeholder="Prix du modèle en euros" value="<?= isset($prix) ? $prix : "" ?>" required />
                 <?php
@@ -43,8 +58,8 @@ require_once("header.php");
                 ?>
             </div>
             <div class="form-group">
-                <label for="inputPromotion">Promotion appliquée (montant à déduire, en €)</label>
-                <input type="number" name="promotion" id="inputPromotion" placeholder="Montant à déduire" value="<?= isset($promotion) ? $promotion : "" ?>" required />
+                <label for="inputPromotion">Promotion appliquée (% de réduction à déduire)</label>
+                <input type="number" name="promotion" id="inputPromotion" placeholder="Pourcentage à déduire" value="<?= isset($promotion) ? $promotion : "" ?>" required />
                 <?php
                 if (isset($errors["promotion"])) {
                     echo "<span class=\"info-error\">{$errors["promotion"]}</span>";

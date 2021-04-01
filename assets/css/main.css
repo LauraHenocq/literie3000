@@ -106,20 +106,20 @@ main {
   width: 100%;
   padding: 4rem;
 }
-#addItem form label {
+#addItem form label:not([for=selectDimensions]) {
   display: none;
 }
-#addItem form input {
+#addItem form input, #addItem form select {
   width: 100%;
   margin-bottom: 2rem;
 }
-#addItem form input:not([type=submit]) {
+#addItem form input:not([type=submit]), #addItem form select {
   background: transparent;
   color: white;
   border: 0.1rem solid #ffcc4d;
   padding: 1rem 1.5rem;
 }
-#addItem form input:not([type=submit]):focus {
+#addItem form input:not([type=submit]):focus, #addItem form select:focus {
   outline: 0;
   border-color: #ffb601;
 }
@@ -130,6 +130,12 @@ main {
   width: 50%;
   border-radius: 5px;
   box-shadow: 5px 2px 2px black;
+  color: white;
+  text-transform: uppercase;
+}
+#addItem .btn:hover {
+  background-color: #fcd87d;
+  cursor: pointer;
 }
 
 footer {

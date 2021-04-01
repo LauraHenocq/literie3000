@@ -124,16 +124,16 @@ main {
         width: 100%;
         padding: 4rem;
 
-        label {
+        label:not([for="selectDimensions"]) {
             display: none;
         }
 
-        input {
+        input, select {
             width: 100%;
             margin-bottom: 2rem;
         }
 
-        input:not([type="submit"]) {
+        input:not([type="submit"]), select {
             background: transparent;
             color: white;
             border: 0.1rem solid $color-yellow;
@@ -153,6 +153,12 @@ main {
         width:50%;
         border-radius:5px;
         box-shadow: 5px 2px 2px black;
+        color: white;
+        text-transform: uppercase;
+        &:hover {
+            background-color: #fcd87d;
+            cursor:pointer;
+        }
     }
 }
 

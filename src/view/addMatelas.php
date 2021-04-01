@@ -6,6 +6,7 @@ class AddMatelasView {
     }
 
     public function render() {
+        $message = $this->controller->addItem();
         require($this->template);
     }
 }
