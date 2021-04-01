@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Raleway", sans-serif;
+  background-color: #144284;
+  color: white;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+header .header-left {
+  display: flex;
+}
+header .header-left img {
+  width: 50%;
+}
+header .header-left nav {
+  align-self: center;
+}
+header .header-left nav ul li {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  padding: 0 1.5rem;
+}
+header .header-left nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+header .header-left nav ul li a:hover {
+  color: #ffbd1a;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+main {
+  margin-top: 10rem;
+  min-height: 50vh;
+}
+
+.welcome h1,
+.welcome h3 {
+  text-align: center;
+}
+
+.chooseAction {
+  margin-top: 5rem;
+}
+.chooseAction .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.chooseAction .row .col {
+  flex-basis: 20%;
+  margin: 2rem 2rem;
+  padding: 5rem 5rem;
+  background-color: #ffcc4d;
+  border: 2px solid #ffcc4d;
+  box-shadow: 5px 2px 2px black;
+  border-radius: 5px;
+}
+.chooseAction .row .col:hover {
+  background-color: #fcd87d;
+  cursor: pointer;
+}
+.chooseAction p {
+  text-align: center;
+  text-transform: uppercase;
+}
+.chooseAction a {
+  text-decoration: none;
+  color: white;
+}
+
+#addItem {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#addItem img {
+  width: 20rem;
+}
+#addItem form {
+  width: 100%;
+  padding: 4rem;
+}
+#addItem form label {
+  display: none;
+}
+#addItem form input {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#addItem form input:not([type=submit]) {
+  background: transparent;
+  color: white;
+  border: 0.1rem solid #ffcc4d;
+  padding: 1rem 1.5rem;
+}
+#addItem form input:not([type=submit]):focus {
+  outline: 0;
+  border-color: #ffb601;
+}
+#addItem .btn {
+  display: block;
+  background-color: #ffcc4d;
+  padding: 2rem 0;
+  width: 50%;
+  border-radius: 5px;
+  box-shadow: 5px 2px 2px black;
+}
+
+footer {
+  padding: 4rem 0;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+footer .footer-brand img {
+  height: 6rem;
+}
+footer .footer-copy span {
+  color: #ffcc4d;
+}
+
+/*# sourceMappingURL=main.css.map */
