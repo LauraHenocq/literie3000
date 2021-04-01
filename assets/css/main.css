@@ -109,17 +109,20 @@ main {
 #addItem form label:not([for=selectDimensions]) {
   display: none;
 }
-#addItem form input, #addItem form select {
+#addItem form input,
+#addItem form select {
   width: 100%;
   margin-bottom: 2rem;
 }
-#addItem form input:not([type=submit]), #addItem form select {
+#addItem form input:not([type=submit]),
+#addItem form select {
   background: transparent;
   color: white;
   border: 0.1rem solid #ffcc4d;
   padding: 1rem 1.5rem;
 }
-#addItem form input:not([type=submit]):focus, #addItem form select:focus {
+#addItem form input:not([type=submit]):focus,
+#addItem form select:focus {
   outline: 0;
   border-color: #ffb601;
 }
@@ -140,6 +143,49 @@ main {
 
 .info-error {
   color: tomato;
+}
+
+.deleteItem {
+  margin-top: 5rem;
+}
+.deleteItem .row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.deleteItem .row .col {
+  flex-basis: 20%;
+  margin: 2rem 2rem;
+  padding: 5rem 5rem;
+  background-color: #ffcc4d;
+  border: 2px solid #ffcc4d;
+  box-shadow: 5px 2px 2px black;
+  border-radius: 5px;
+}
+.deleteItem .row .col img {
+  width: 100%;
+}
+.deleteItem .row .col .btn {
+  margin-top: 5rem;
+  background-color: #fcd87d;
+  padding: 1rem 0;
+  width: 50%;
+  border-radius: 5px;
+  box-shadow: 5px 2px 2px black;
+  color: white;
+  text-transform: uppercase;
+}
+.deleteItem .row .col .btn:hover {
+  background-color: #ffcc4d;
+  cursor: pointer;
+}
+.deleteItem p {
+  text-align: center;
+  text-transform: uppercase;
+}
+.deleteItem a {
+  text-decoration: none;
+  color: white;
 }
 
 footer {

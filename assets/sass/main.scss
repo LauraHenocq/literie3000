@@ -128,12 +128,14 @@ main {
             display: none;
         }
 
-        input, select {
+        input,
+        select {
             width: 100%;
             margin-bottom: 2rem;
         }
 
-        input:not([type="submit"]), select {
+        input:not([type="submit"]),
+        select {
             background: transparent;
             color: white;
             border: 0.1rem solid $color-yellow;
@@ -149,21 +151,67 @@ main {
     .btn {
         display: block;
         background-color: $color-yellow;
-        padding:2rem 0;
-        width:50%;
-        border-radius:5px;
+        padding: 2rem 0;
+        width: 50%;
+        border-radius: 5px;
         box-shadow: 5px 2px 2px black;
         color: white;
         text-transform: uppercase;
         &:hover {
             background-color: #fcd87d;
-            cursor:pointer;
+            cursor: pointer;
         }
     }
 }
 
 .info-error {
-    color:tomato;
+    color: tomato;
+}
+
+.deleteItem {
+    margin-top: 5rem;
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .col {
+            flex-basis: 20%;
+            margin: 2rem 2rem;
+            padding: 5rem 5rem;
+            background-color: $color-yellow;
+            border: 2px solid $color-yellow;
+            box-shadow: 5px 2px 2px black;
+            border-radius: 5px;
+            img {
+                width: 100%;
+            }
+            .btn {
+                margin-top:5rem;
+                background-color: #fcd87d;
+                padding: 1rem 0;
+                width: 50%;
+                border-radius: 5px;
+                box-shadow: 5px 2px 2px black;
+                color: white;
+                text-transform: uppercase;
+                &:hover {
+                    background-color: $color-yellow;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
 }
 
 footer {

@@ -6,6 +6,7 @@ class DeleteMatelasView {
     }
 
     public function render() {
+        $matelas = $this->controller->showItems();
         $message = $this->controller->deleteItem();
         require($this->template);
     }

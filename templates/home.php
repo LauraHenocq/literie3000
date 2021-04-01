@@ -16,7 +16,7 @@ require_once("header.php");
                 <p><a href="">Modifier un matelas existant</a><p>
             </div>
             <div class="col">
-                <p><a href="">Supprimer un matelas</a><p>
+                <p><a href="index.php?page=deleteMatelas">Supprimer un matelas</a><p>
             </div>
         </div>
     </section>
